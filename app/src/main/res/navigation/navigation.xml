@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/navigation.xml">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/choose_mode">
 
+    <fragment
+        android:id="@+id/session_code_enter"
+        android:name="com.example.initiativetracker.ui.SessionCodeFragment"
+        android:label="fragment_session_code_enter"
+        tools:layout="@layout/fragment_session_code_enter" />
+    <fragment
+        android:id="@+id/choose_mode"
+        android:name="com.example.initiativetracker.ui.ChooseModeFragment"
+        android:label="fragment_choose_mode"
+        tools:layout="@layout/fragment_choose_mode">
+        <action
+            android:id="@+id/action_choose_mode_to_session_code_enter"
+            app:destination="@id/session_code_enter" />
+    </fragment>
 </navigation>
