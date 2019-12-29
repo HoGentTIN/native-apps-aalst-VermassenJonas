@@ -11,7 +11,8 @@ import com.example.initiativetracker.databinding.FragmentSessionCodeEnterBinding
 
 class SessionCodeFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentSessionCodeEnterBinding>(
