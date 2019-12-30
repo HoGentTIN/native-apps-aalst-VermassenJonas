@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.initiativetracker.R
 import com.example.initiativetracker.domain.Monster
@@ -22,7 +23,18 @@ class MonsterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
+
         monster_list.layoutManager = LinearLayoutManager(this.context)
+
+        val application = requireNotNull(this.activity).application
+        val viewModelFactory =
+            MonsterListViewModelFactory(application)
+        val viewModel = ViewModelProviders.of(this, viewModelFactory)
+            .get(MonsterListViewModel::class.java)
+
         val listener = object : OnItemClickListener<Monster> {
             override fun onItemClick(item: Monster) {
                 // TODO
