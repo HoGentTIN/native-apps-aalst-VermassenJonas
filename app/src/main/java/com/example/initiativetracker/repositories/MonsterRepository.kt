@@ -9,7 +9,7 @@ class MonsterRepository(private val database: Room) {
     val monsters = database.monsterDao.getAll()
 
     suspend fun refreshMonsters() {
-        //TODO
+        // TODO
     }
 
     fun getMonsters(sessionId: String): LiveData<List<Monster>> {

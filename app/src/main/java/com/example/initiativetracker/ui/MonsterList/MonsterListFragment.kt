@@ -1,4 +1,4 @@
-package com.example.initiativetracker.ui
+package com.example.initiativetracker.ui.MonsterList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,6 +28,9 @@ class MonsterListFragment : Fragment() {
                 // TODO
             }
         }
-        monster_list.adapter = MonsterListAdapter(listener)
+        monster_list.adapter =
+            MonsterListAdapter(
+                listener
+            )
     }
 }

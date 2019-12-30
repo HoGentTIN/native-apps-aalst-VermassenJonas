@@ -1,4 +1,4 @@
-package com.example.initiativetracker.ui
+package com.example.initiativetracker.ui.MonsterList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.initiativetracker.databinding.ListItemMonsterBinding
 import com.example.initiativetracker.domain.Monster
-import com.example.initiativetracker.ui.MonsterListAdapter.ViewHolder.Companion.from
+import com.example.initiativetracker.ui.MonsterList.MonsterListAdapter.ViewHolder.Companion.from
 import com.example.initiativetracker.util.OnItemClickListener
 
 class MonsterListAdapter(val listener: OnItemClickListener<Monster>) :
-    ListAdapter<Monster, MonsterListAdapter.ViewHolder>(DiffCallback()) {
+    ListAdapter<Monster, MonsterListAdapter.ViewHolder>(
+        DiffCallback()
+    ) {
 
     class ViewHolder private constructor(val binding: ListItemMonsterBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -26,7 +28,9 @@ class MonsterListAdapter(val listener: OnItemClickListener<Monster>) :
             fun from(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = ListItemMonsterBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return ViewHolder(
+                    binding
+                )
             }
         }
     }

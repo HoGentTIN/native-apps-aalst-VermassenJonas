@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/monsterListFragment"
-        android:name="com.example.initiativetracker.ui.MonsterListFragment"
+        android:name="com.example.initiativetracker.ui.MonsterList.MonsterListFragment"
         android:label="MonsterListFragment"
         tools:layout="@layout/fragment_monster_list" />
 </navigation>
