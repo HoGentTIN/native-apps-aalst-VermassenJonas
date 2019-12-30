@@ -4,32 +4,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.initiativetracker.R
+import com.example.initiativetracker.databinding.FragmentMonsterListBinding
 import com.example.initiativetracker.domain.Monster
 import com.example.initiativetracker.util.OnItemClickListener
 import kotlinx.android.synthetic.main.fragment_monster_list.monster_list
 
 class MonsterListFragment : Fragment() {
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_monster_list, container, false)
-    }
+        val binding = DataBindingUtil.inflate<FragmentMonsterListBinding>(
+            inflater,
+            R.layout.fragment_monster_list,
+            container,
+            false
+        )
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-
-
-
-        monster_list.layoutManager = LinearLayoutManager(this.context)
 
         val application = requireNotNull(this.activity).application
+
         val viewModelFactory =
             MonsterListViewModelFactory(application)
         val viewModel = ViewModelProviders.of(this, viewModelFactory)
@@ -37,12 +38,21 @@ class MonsterListFragment : Fragment() {
 
         val listener = object : OnItemClickListener<Monster> {
             override fun onItemClick(item: Monster) {
-                // TODO
+                viewModel.onSetMonster(item)
             }
         }
-        monster_list.adapter =
-            MonsterListAdapter(
-                listener
-            )
+        val adapter = MonsterListAdapter(listener)
+        binding.monsterList.adapter = adapter
+        viewModel.monsters.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                adapter.submitList(it)
+            }
+        })
+
+
+
+        return binding.root
     }
+
+
 }
