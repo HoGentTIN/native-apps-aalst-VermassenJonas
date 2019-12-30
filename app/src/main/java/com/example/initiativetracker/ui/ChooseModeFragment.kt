@@ -11,10 +11,12 @@ import androidx.navigation.findNavController
 import com.example.initiativetracker.R
 import com.example.initiativetracker.databinding.FragmentChooseModeBinding
 import kotlinx.android.synthetic.main.fragment_choose_mode.btn_choose_join
+import kotlinx.android.synthetic.main.fragment_choose_mode.btn_create_session
 
 class ChooseModeFragment : Fragment() {
 
     lateinit var btn_join: Button
+    lateinit var btn_create: Button
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,10 +36,14 @@ class ChooseModeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_join = btn_choose_join
+        btn_create = btn_create_session
         btn_join.setOnClickListener { v: View ->
 
             v.findNavController()
                 .navigate(R.id.action_choose_mode_to_session_code_enter)
+        }
+        btn_create.setOnClickListener { v: View ->
+            v.findNavController().navigate(R.id.action_choose_mode_to_monsterListFragment)
         }
     }
 }

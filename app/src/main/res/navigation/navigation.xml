@@ -9,7 +9,11 @@
         android:id="@+id/session_code_enter"
         android:name="com.example.initiativetracker.ui.SessionCodeFragment"
         android:label="fragment_session_code_enter"
-        tools:layout="@layout/fragment_session_code_enter" />
+        tools:layout="@layout/fragment_session_code_enter">
+        <action
+            android:id="@+id/action_session_code_enter_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/choose_mode"
         android:name="com.example.initiativetracker.ui.ChooseModeFragment"
@@ -18,5 +22,13 @@
         <action
             android:id="@+id/action_choose_mode_to_session_code_enter"
             app:destination="@id/session_code_enter" />
+        <action
+            android:id="@+id/action_choose_mode_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/monsterListFragment"
+        android:name="com.example.initiativetracker.ui.MonsterListFragment"
+        android:label="MonsterListFragment"
+        tools:layout="@layout/fragment_monster_list" />
 </navigation>
