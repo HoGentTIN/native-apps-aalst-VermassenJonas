@@ -30,5 +30,18 @@
         android:id="@+id/monsterListFragment"
         android:name="com.example.initiativetracker.ui.MonsterList.MonsterListFragment"
         android:label="MonsterListFragment"
-        tools:layout="@layout/fragment_monster_list" />
+        tools:layout="@layout/fragment_monster_list">
+        <action
+            android:id="@+id/action_monsterListFragment_to_monsterCreateFragment"
+            app:destination="@id/monsterCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monsterCreateFragment"
+        android:name="com.example.initiativetracker.ui.MonsterCreateFragment"
+        android:label="MonsterCreateFragment"
+        tools:layout="@layout/fragment_monster_create">
+        <action
+            android:id="@+id/action_monsterCreateFragment_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
 </navigation>

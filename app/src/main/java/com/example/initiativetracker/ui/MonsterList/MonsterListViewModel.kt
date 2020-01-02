@@ -28,6 +28,6 @@ class MonsterListViewModel(application: Application) : ViewModel() {
     }
 
     fun onSetMonster(monster: Monster) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 }
