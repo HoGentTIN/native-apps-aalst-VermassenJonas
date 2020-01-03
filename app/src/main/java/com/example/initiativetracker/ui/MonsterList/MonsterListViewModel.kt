@@ -6,6 +6,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.initiativetracker.database.Room
 import com.example.initiativetracker.domain.Monster
 import com.example.initiativetracker.repositories.MonsterRepository
+import com.example.initiativetracker.storage.SharedPrefManager
+import com.example.initiativetracker.util.App
 import java.io.IOException
 import kotlinx.coroutines.launch
 
@@ -13,7 +15,8 @@ class MonsterListViewModel(application: Application) : ViewModel() {
 
     private val monsterRepository = MonsterRepository(Room.getInstance(application))
 
-    var monsters = monsterRepository.getMonsters("XXXX") // TODO: handle session
+    var monsters =
+        monsterRepository.getMonsters(SharedPrefManager.getInstance(App.applicationContext()).session.sessionId) // TODO: handle session
 
     init {
         refreshDataFromNetwork()

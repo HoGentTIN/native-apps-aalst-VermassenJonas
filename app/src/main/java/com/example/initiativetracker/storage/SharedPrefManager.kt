@@ -5,7 +5,6 @@ import com.example.initiativetracker.domain.Session
 
 class SharedPrefManager private constructor(private val mCtx: Context) {
 
-
     val session: Session
         get() {
             val sharedPreferences =
