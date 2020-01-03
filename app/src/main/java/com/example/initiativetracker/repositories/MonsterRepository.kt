@@ -17,7 +17,7 @@ class MonsterRepository(private val database: Room) {
                 App.applicationContext()
             ).session.sessionId
         ).await()
-        database.monsterDao.insert(monsters)
+        database.monsterDao.insert(monsters.toObject())
     }
 
     fun getMonsters(sessionId: String): LiveData<List<Monster>> {
