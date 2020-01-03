@@ -3,13 +3,15 @@ package com.example.initiativetracker.repositories
 import androidx.lifecycle.LiveData
 import com.example.initiativetracker.database.Room
 import com.example.initiativetracker.domain.Monster
+import com.example.initiativetracker.network.RetrofitClient
 
 class MonsterRepository(private val database: Room) {
 
     val monsters = database.monsterDao.getAll()
 
     suspend fun refreshMonsters() {
-        // TODO
+        val monsters = RetrofitClient.instance.getMonstersForSessionAsync("TODO").await() // TODO
+        database.monsterDao.insert(monsters)
     }
 
     fun getMonsters(sessionId: String): LiveData<List<Monster>> {
