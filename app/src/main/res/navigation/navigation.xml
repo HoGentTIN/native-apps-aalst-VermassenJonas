@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/choose_mode">
+
+    <fragment
+        android:id="@+id/session_code_enter"
+        android:name="com.example.initiativetracker.ui.SessionCodeFragment"
+        android:label="fragment_session_code_enter"
+        tools:layout="@layout/fragment_session_code_enter">
+        <action
+            android:id="@+id/action_session_code_enter_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/choose_mode"
+        android:name="com.example.initiativetracker.ui.ChooseModeFragment"
+        android:label="fragment_choose_mode"
+        tools:layout="@layout/fragment_choose_mode">
+        <action
+            android:id="@+id/action_choose_mode_to_session_code_enter"
+            app:destination="@id/session_code_enter" />
+        <action
+            android:id="@+id/action_choose_mode_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monsterListFragment"
+        android:name="com.example.initiativetracker.ui.MonsterList.MonsterListFragment"
+        android:label="MonsterListFragment"
+        tools:layout="@layout/fragment_monster_list">
+        <action
+            android:id="@+id/action_monsterListFragment_to_monsterCreateFragment"
+            app:destination="@id/monsterCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/monsterCreateFragment"
+        android:name="com.example.initiativetracker.ui.MonsterCreateFragment"
+        android:label="MonsterCreateFragment"
+        tools:layout="@layout/fragment_monster_create">
+        <action
+            android:id="@+id/action_monsterCreateFragment_to_monsterListFragment"
+            app:destination="@id/monsterListFragment" />
+    </fragment>
+</navigation>
