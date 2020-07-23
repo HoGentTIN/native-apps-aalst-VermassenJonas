@@ -10,7 +10,7 @@ class SharedPrefManager private constructor(private val mCtx: Context) {
             val sharedPreferences =
                 mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return Session(
-                sharedPreferences.getString("sessionId", "") ?: ""
+                sharedPreferences.getString("sessionId", "AAAA") ?: "AAAA" // TODO
 
             )
         }

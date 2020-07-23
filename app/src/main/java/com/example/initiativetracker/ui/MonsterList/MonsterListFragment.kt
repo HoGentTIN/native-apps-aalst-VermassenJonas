@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.fragment_monster_list.fab_create_monster
 
 class MonsterListFragment : Fragment() {
 
+    private lateinit var viewModel: MonsterListViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,7 +35,7 @@ class MonsterListFragment : Fragment() {
 
         val viewModelFactory =
             MonsterListViewModelFactory(application)
-        val viewModel = ViewModelProviders.of(this, viewModelFactory)
+        viewModel = ViewModelProviders.of(this, viewModelFactory)
             .get(MonsterListViewModel::class.java)
 
         val listener = object : OnItemClickListener<Monster> {
@@ -60,5 +62,10 @@ class MonsterListFragment : Fragment() {
             v.findNavController()
                 .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onRefresh()
     }
 }

@@ -1,7 +1,5 @@
 package com.example.initiativetracker.network
 
-import com.example.initiativetracker.domain.Monster
-import com.example.initiativetracker.network.dto.MonsterDto
 import com.example.initiativetracker.network.dto.MonsterListDto
 import kotlinx.coroutines.Deferred
 import retrofit2.http.Body

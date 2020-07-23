@@ -13,6 +13,4 @@ data class MonsterDto(
     fun toObject(): Monster {
         return Monster(id, name, initiative, sessionId)
     }
-
-
 }
