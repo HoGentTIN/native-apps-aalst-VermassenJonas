@@ -20,7 +20,7 @@ class MonsterRepository(private val database: Room) {
             ).session.sessionId
         ).await()
         Toast.makeText(App.applicationContext(), "call finished", Toast.LENGTH_SHORT).show()
-        database.monsterDao.insert(monsters.toObject())
+        database.monsterDao.insert(monsters.toList())
     }
 
     fun getMonsters(sessionId: String): LiveData<List<Monster>> {
