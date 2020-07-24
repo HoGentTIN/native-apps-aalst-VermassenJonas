@@ -55,8 +55,4 @@ class ChooseModeFragment : Fragment() {
             }
         }
     }
-
-    suspend fun makeNewSession() {
-
-    }
 }
