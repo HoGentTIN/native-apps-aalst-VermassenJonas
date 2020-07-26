@@ -12,6 +12,8 @@ import androidx.navigation.findNavController
 import com.example.initiativetracker.R
 import com.example.initiativetracker.databinding.FragmentMonsterListBinding
 import com.example.initiativetracker.domain.Monster
+import com.example.initiativetracker.storage.SharedPrefManager
+import com.example.initiativetracker.util.App
 import com.example.initiativetracker.util.OnItemClickListener
 import kotlinx.android.synthetic.main.fragment_monster_list.fab_create_monster
 
@@ -56,11 +58,14 @@ class MonsterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if ("" == SharedPrefManager.getInstance(App.applicationContext()).session.masterCode) {
+            fab_create_monster.hide()
+        } else {
+            fab_create_monster.setOnClickListener { v: View ->
 
-        fab_create_monster.setOnClickListener { v: View ->
-
-            v.findNavController()
-                .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
+                v.findNavController()
+                    .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
+            }
         }
     }
 

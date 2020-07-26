@@ -9,4 +9,6 @@
     <string name="monster_name">Monster Name:</string>
     <string name="monster_initiative">Monster Initiative:</string>
     <string name="create_monster">Create Monster</string>
+    <string name="enter_code">Enter Code</string>
+    <string name="session">Session</string>
 </resources>
