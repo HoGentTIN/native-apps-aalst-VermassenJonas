@@ -2,6 +2,8 @@ package com.example.initiativetracker.ui.MonsterList
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -53,4 +55,13 @@ class MonsterListAdapter(val listener: OnItemClickListener<Monster>) :
             return oldItem == newItem
         }
     }
+    // @BindingAdapter("monsterName")
+    // fun TextView.setMonsterName(item: Monster) {
+    //    text = item.name
+    // }
+}
+
+@BindingAdapter("monsterInitiative")
+fun TextView.setMonsterInitiative(item: Monster) {
+    text = item.initiative.toString()
 }

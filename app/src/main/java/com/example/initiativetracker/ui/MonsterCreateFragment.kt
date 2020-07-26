@@ -31,8 +31,6 @@ class MonsterCreateFragment : Fragment() {
             false
         )
         return binding.root
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,7 +48,5 @@ class MonsterCreateFragment : Fragment() {
             )
             v.findNavController().navigate(R.id.action_monsterCreateFragment_to_monsterListFragment)
         }
-
     }
-
 }
