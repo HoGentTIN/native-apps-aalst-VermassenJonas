@@ -55,10 +55,6 @@ class MonsterListAdapter(val listener: OnItemClickListener<Monster>) :
             return oldItem == newItem
         }
     }
-    // @BindingAdapter("monsterName")
-    // fun TextView.setMonsterName(item: Monster) {
-    //    text = item.name
-    // }
 }
 
 @BindingAdapter("monsterInitiative")

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -34,7 +35,6 @@ class MonsterListFragment : Fragment() {
         )
 
         val application = requireNotNull(this.activity).application
-
         val viewModelFactory =
             MonsterListViewModelFactory(application)
         viewModel = ViewModelProviders.of(this, viewModelFactory)
@@ -58,11 +58,12 @@ class MonsterListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title =
+            "Session " + SharedPrefManager.getInstance(App.applicationContext()).session.sessionId
         if ("" == SharedPrefManager.getInstance(App.applicationContext()).session.masterCode) {
             fab_create_monster.hide()
         } else {
             fab_create_monster.setOnClickListener { v: View ->
-
                 v.findNavController()
                     .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
             }

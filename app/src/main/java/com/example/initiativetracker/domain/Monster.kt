@@ -9,5 +9,6 @@ data class Monster(
     var id: Int,
     var name: String,
     var initiative: Int,
-    var sessionId: String
+    var sessionId: String,
+    var turnOrder: Int
 )
