@@ -40,7 +40,8 @@ class MonsterCreateFragment : Fragment() {
                 0,
                 editTextMonsterName.editableText.toString(),
                 editTextMonsterInitiative.editableText.toString().toInt(),
-                SharedPrefManager.getInstance(App.applicationContext()).session.sessionId
+                SharedPrefManager.getInstance(App.applicationContext()).session.sessionId,
+                0
             )
             RetrofitClient.instance.postNewMonster(
                 SharedPrefManager.getInstance(App.applicationContext()).session.masterCode,

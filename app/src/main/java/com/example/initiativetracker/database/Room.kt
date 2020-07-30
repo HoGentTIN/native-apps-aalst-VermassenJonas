@@ -9,7 +9,7 @@ import com.example.initiativetracker.domain.Monster
 
 @Database(
     entities = [Monster::class],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
