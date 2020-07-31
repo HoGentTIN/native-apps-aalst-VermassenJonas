@@ -11,4 +11,6 @@
     <string name="create_monster">Create Monster</string>
     <string name="enter_code">Enter Code</string>
     <string name="session">Session</string>
+    <string name="next_monster">next monster</string>
+    <string name="add_monster">add monster</string>
 </resources>
