@@ -69,15 +69,24 @@ class MonsterListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).supportActionBar?.title =
             "Session " + SharedPrefManager.getInstance(App.applicationContext()).session.sessionId
-        //if ("" == SharedPrefManager.getInstance(App.applicationContext()).session.masterCode) {
+        // if ("" == SharedPrefManager.getInstance(App.applicationContext()).session.masterCode) {
         //    fab_create_monster.hide()
-        //} else {
+        // } else {
         //    fab_create_monster.setOnClickListener { v: View ->
         //        v.findNavController()
         //            .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
         //    }
-        //}
+        // }
 
+        action_bar.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
+                R.id.action_add_monster -> this.findNavController()
+                    .navigate(R.id.action_monsterListFragment_to_monsterCreateFragment)
+                R.id.action_next_monster -> viewModel.nextMonster()
+            }
+
+            true
+        }
     }
 
     override fun onResume() {
@@ -87,7 +96,9 @@ class MonsterListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.monster_menu, action_bar.menu)
+        if ("" != SharedPrefManager.getInstance(App.applicationContext()).session.masterCode) {
+            inflater.inflate(R.menu.monster_menu, action_bar.menu)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

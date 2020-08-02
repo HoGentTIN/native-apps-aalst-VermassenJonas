@@ -27,4 +27,9 @@ interface MonsterApi {
 
     @POST("session")
     fun getNewSessionCodeAsync(): Deferred<Session>
+
+    @POST("monster/next/{master_code}")
+    fun nextMonster(
+        @Path("master_code") masterCode: String
+    ): Deferred<Any>
 }

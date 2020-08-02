@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import com.example.initiativetracker.database.Room
 import com.example.initiativetracker.domain.Monster
+import com.example.initiativetracker.network.RetrofitClient
 import com.example.initiativetracker.repositories.MonsterRepository
 import com.example.initiativetracker.storage.SharedPrefManager
 import com.example.initiativetracker.util.App
@@ -38,6 +39,16 @@ class MonsterListViewModel(application: Application) : ViewModel() {
 
     fun onSetMonster(monster: Monster) {
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+    }
+
+    fun nextMonster() = viewModelScope.launch {
+        RetrofitClient.instance.nextMonster(SharedPrefManager.getInstance(App.applicationContext()).session.masterCode)
+            .await()
+        try {
+            monsterRepository.refreshMonsters()
+        } catch (e: IOException) {
+            // TODO: error handling
+        }
     }
 
     override fun onCleared() {
