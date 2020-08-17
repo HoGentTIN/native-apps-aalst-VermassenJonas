@@ -64,6 +64,7 @@ dependencies {
     //Kotlin Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlinCoroutineVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinCoroutineVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0"
 
     // Moshi
     implementation "com.squareup.moshi:moshi:$version_moshi"

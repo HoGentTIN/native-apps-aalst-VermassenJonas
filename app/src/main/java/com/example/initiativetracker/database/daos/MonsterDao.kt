@@ -18,7 +18,7 @@ interface MonsterDao {
     @Query("SELECT * FROM Monster ORDER BY id DESC")
     fun getAll(): LiveData<List<Monster>>
 
-    @Query("SELECT * FROM Monster WHERE sessionId = :sessionId")
+    @Query("SELECT * FROM Monster WHERE sessionId = :sessionId ORDER BY turnOrder ASC")
     fun getForSession(sessionId: String): LiveData<List<Monster>>
 
     @Query("SELECT * FROM Monster WHERE id = :id")
